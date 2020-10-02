@@ -15,7 +15,7 @@ public static int rand2 = 0;
         Random randomNumber = new Random();
         int rand1 = randomNumber.nextInt(36);
         rand2 = rand1;
-        System.out.println("This is a random nr ");
+        System.out.println("This is a random nr and should not be picked besides thats cheating");
         System.out.println(rand1);
         boolean isRed = false;
         boolean isGreen = false;
