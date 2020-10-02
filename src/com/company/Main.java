@@ -1,34 +1,38 @@
 package com.company;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.Random;
 
 
 public class Main {
 
-
+public static int rand2 = 0;
 
 
 
 
     public static void main(String[] args) {
-	// write your code here
         Random randomNumber = new Random();
         int rand1 = randomNumber.nextInt(36);
+        rand2 = rand1;
         System.out.println("This is a random nr ");
         System.out.println(rand1);
-        boolean isRed = true;
-        boolean isGreen = true;
+        boolean isRed = false;
+        boolean isGreen = false;
         int tester = 0;
+        int guess = -1;
 
 
-      //
 
-
-        Scanner Input = new Scanner(System.in); //
+        Scanner Input = new Scanner(System.in);
         System.out.println("Enter username");
         String username = Input.nextLine();
-        System.out.println("Enter a guess");
-        int guess = Input.nextInt();
+
+            System.out.println("Enter a guess, number 0-36");
+
+                try { guess = Input.nextInt(); }
+                catch (java.util.InputMismatchException error) { System.out.println("That is not a number 0-36");}
+
 
 
         spinWheel(guess, rand1, isRed);
@@ -42,9 +46,10 @@ public class Main {
         else { System.out.println("Better luck next time");}
     }
 
-    public static boolean isRed(int isRed, ) {
-        if (rand1%2==0) {isRed = false; isGreen = true;}
+    public static boolean isRed(boolean isRed,boolean isGreen ) {
+        if (rand2%2==0) {isRed = false; isGreen = true;}
         else {isRed = true; isGreen = false;}
-        System.out.println(isRed);
+        System.out.println("isRed " +isRed + isGreen);
+        return isRed;
     }
 }
