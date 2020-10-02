@@ -19,6 +19,7 @@ public static int rand2 = 0;
         System.out.println(rand1);
         boolean isRed = false;
         boolean isGreen = false;
+        boolean stupid = false;
         int tester = 0;
         int guess = -1;
 
@@ -28,10 +29,12 @@ public static int rand2 = 0;
         System.out.println("Enter username");
         String username = Input.nextLine();
 
-            System.out.println("Enter a guess, number 0-36");
 
-                try { guess = Input.nextInt(); }
-                catch (java.util.InputMismatchException error) { System.out.println("That is not a number 0-36");}
+        do {
+            System.out.println("Enter a guess, number 0-36");
+            if(Input.hasNextInt()) { guess = Input.nextInt(); stupid = true;
+            } else {Input.nextLine();}
+            } while(!stupid);
 
 
 
@@ -52,4 +55,8 @@ public static int rand2 = 0;
         System.out.println("isRed " +isRed + isGreen);
         return isRed;
     }
+
+
+
+
 }
